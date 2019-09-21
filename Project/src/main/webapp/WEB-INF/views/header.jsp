@@ -1,9 +1,5 @@
-<%-- 
-    Document   : header
-    Created on : Sep 3, 2019, 8:36:07 PM
-    Author     : TUYENTOC
---%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -123,21 +119,12 @@
                                                     </li>
                                                     <li><a href="product.jsp">Shop <i class="fa fa-angle-down"></i></a>
                                                 <ul class="mega-menu">
-                                                    <li><a href="product.jsp">IPHONE</a>
-                                                        <ul>
-                                                            <li><a href="product.jsp">IPHONE</a></li>                                                      
-                                                        </ul>
+                                                	<c:forEach var="listItem" items="${list}">
+                                                    <li><a href="product.jsp">${listItem.cateName}</a>
+                                                        
                                                     </li>
-                                                    <li><a href="product.jsp">SAMSUNG</a>
-                                                        <ul>
-                                                            <li><a href="product.jsp">SAMSUNG</a></li>                                                           
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="product.jsp">MACBOOK</a>
-                                                        <ul>
-                                                            <li><a href="product.jsp">MACBOOK</a></li>                                                            
-                                                        </ul>
-                                                    </li>
+                                                    </c:forEach>
+                                                   
                                                 </ul>
 
                                             </li>

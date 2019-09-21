@@ -28,8 +28,9 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
-	ProductDAO productdao;
 	CategoryDAO categorydao;
+	@Autowired
+	ProductDAO productdao;
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -37,8 +38,9 @@ public class HomeController {
 		
 		ArrayList<Product> list = productdao.getAllPro();
 		ArrayList<Category> listCate = categorydao.getAll();
-		
-		model.addAttribute("listCate",listCate);
+		System.out.println(" so lít là"+listCate.size());
+		model.addAttribute("list",listCate);
+		model.addAttribute("listPro", list);
 	
 		
 		return "index";

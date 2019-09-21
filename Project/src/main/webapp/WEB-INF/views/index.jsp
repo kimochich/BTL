@@ -1,9 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : Sep 7, 2019, 1:49:14 PM
-    Author     : TUYENTOC
---%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -37,12 +32,10 @@
         <script src="resources/js/vendor/modernizr-3.5.0.min.js"></script>
     </head>
     <body>
-        <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
+     
 
         <jsp:include page="header.jsp"/>
-
+		
         <!-- slider area start -->
         <div class="slider-area">
             <div class="hero-slider-active slick-dot-style slider-arrow-style">
@@ -174,13 +167,13 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="module-one">
                         <div class="module-four-wrapper custom-seven-column">
-
+						<c:forEach var="list" items="${listPro }">
                             <div class="col mb-30">
                                 <div class="product-item">
                                     <div class="product-thumb">
                                         <a href="product-details.jsp">
-                                            <img src="resources/img/product/iphone-8-plus-hh-600x600.jpg" class="pri-img" alt="">
-                                            <img src="resources/img/product/iphone-x-256gb-a1-600x600.jpg" class="sec-img" alt="">
+                                            <img src="${list.imageLink1} " class="pri-img" alt="">
+                                            <img src="${list.imageLink1} " class="sec-img" alt="">
                                         </a>
                                         <div class="box-label">
                                             <div class="label-product label_sale">
@@ -194,7 +187,7 @@
                                             <p><a href="shop-grid-left-sidebar.jsp">apple</a></p>
                                         </div>
                                         <div class="product-name">
-                                            <h4><a href="product-details.jsp">office uses  Wireless Speaker</a></h4>
+                                            <h4><a href="product-details.jsp">${list.productName} </a></h4>
                                         </div>
 
                                         <div class="price-box">
@@ -204,6 +197,8 @@
                                     </div>
                                 </div>
                             </div> <!-- single item end -->
+                            
+                            </c:forEach>
                         </div>
                     </div>
 
